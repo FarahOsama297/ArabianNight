@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style2.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="full-page">
+      <div class="navbar">
+        <div>
+          <a href="">Login</a>
+        </div>
+      </div>
+      <div id="login-form" class="login-page">
+        <div class="form-box">
+          <div class="button-box">
+            <div id="btn"></div>
+            <button type="button" ondblclick="logIn()" class="toggle-btn">
+              Log In
+            </button>
+            <button type="button" ondblclick="register()" class="toggle-btn">
+              Register
+            </button>
+          </div>
+          <!--login form-->
+          <form id="login" class="input-group-login">
+            <input type="text" class="input-field" placeholder="Email ID" id="username" required/>
+            <input type="password" class="input-field" placeholder="Enter password" id="password" required/>
+            <a href=""> remeber password</a>
+            <button type="submit" class="submit-btn" id="login-btn">Log In</button>
+          </form>
+          <!--register form-->
+          <form id="register" class="input-group-register">
+            <input type="text" class="input-field" placeholder="First Name" required/>
+            <input type="text" class="input-field" placeholder="Last Name" required/>
+            <input type="email" class="input-field" placeholder="Email ID" required/>
+            <input type="password" class="input-field" placeholder="Enter Password" required/>
+            <input type="password" class="input-field" placeholder="Confirm Password" required/>
+            <input type="checkbox" class="checkbox" />
+            <span>I Agree To The Terms And Conditions </span>
+            <button type="submit" class="submit-btn">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      //switch between login and register//
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+      var z = document.getElementById("btn");
+      function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+      }
+      function logIn() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+      }
+    </script>
+    <script>
+      var model = document.getElementById("login-form");
+      window.onelick = function (event) {
+        if (event.target == model) {
+          model.style.display = "none";
+        }
+      };
+    </script>
+    <script>
+      //login function//
+      var loginBtn = document.getElementById("login-btn");
+      loginBtn.addEventListener("click", function(a) {
+        a.preventDefault(); //to prevent the page from reading currently data
+        var userName = document.getElementById("username"); //you need to make id for the input that has the same name like line 28
+        var password = document.getElementById("password"); // use ctrl + f to find any thing like this id "password"
+        if (userName.value == "farahOsama2020@gmail.com" && password.value == "123456789") {
+          //go to admin page//
+          setTimeout(() => {
+            console.log("login succesfully");
+            window.location = "admin.html";
+          }, 1500);
+        } 
+        else if(userName.value == "mahii2020@gmail.com" && password.value == "12345"){
+          //go to main page//
+          setTimeout(() => {
+            console.log("login succesfully");
+            window.location = "Moon.html";
+          }, 1500);
+
+        }
+        else {
+          //return to login page//
+          setTimeout(() => {
+            window.location = "login.html";
+            alert("login failed");
+          }, 1500);
+        }
+      })
+    </script>
+  </body>
+</html>
